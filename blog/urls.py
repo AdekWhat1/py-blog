@@ -1,6 +1,5 @@
 from django.urls import path
 
-from blog.models import Commentary
 from blog.views import PostList, PostDetailView
 
 

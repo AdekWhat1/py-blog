@@ -2,12 +2,17 @@
 
 {% block content %}
   {% if user.is_authenticated %}
-    <li>
-      User: {{ user.username }}
-    </li>
-    <li>
-      <a href="{% url 'login' %}">Logout</a>
-    </li>
+  <li>
+    User: {{ user.username }}
+  </li>
+  <li>
+    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-link" style="padding: 0; display: inline; color: blue; text-decoration: underline; background: none; border: none; font: inherit; cursor: pointer;">
+        Logout
+      </button>
+    </form>
+  </li>
   {% else %}
     <li>
       <a href="{% url 'login' %}">Login</a>
